@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        
+        const isAlpha = function(ch){
+            return /^[A-Z]$/i.test(ch);
+        }
+
+        const palindromes = function (str) {
+            if (str.length === 1) return true;
+        
+            let left = 0;
+            let right = str.length - 1;
+        
+            while (left <= right){
+                while (!isAlpha(str[left])) left++;
+                while (!isAlpha(str[right])) right--;
+                let leftChar = str[left].toLowerCase()
+                let rightChar = str[right].toLowerCase()
+                if (leftChar !== rightChar) return false;
+                left++;
+                right--;
+            }
+        
+            return true;
+        };
+
+        console.log(palindromes("r3ace3car."))
+
+    </script>
+</body>
+</html>
